@@ -1,0 +1,15 @@
+.env
+*.out
+*.exe
+*.dll
+*.so
+*.dylib
+dist/
+build/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+go.sum
