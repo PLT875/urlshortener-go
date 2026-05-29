@@ -12,4 +12,5 @@ build/
 *.swo
 *~
 .DS_Store
-go.sum
+
+bin/

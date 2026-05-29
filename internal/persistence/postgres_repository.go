@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/PLT875/urlshortener/domain"
+	"github.com/PLT875/urlshortener/internal/domain"
 	_ "github.com/lib/pq"
 )
 

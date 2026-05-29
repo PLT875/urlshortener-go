@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/PLT875/urlshortener/handlers"
-	"github.com/PLT875/urlshortener/persistence"
+	"github.com/PLT875/urlshortener/internal/handlers"
+	"github.com/PLT875/urlshortener/internal/persistence"
 )
 
 func main() {
@@ -22,6 +22,9 @@ func main() {
 	defer repo.Close()
 
 	handler := handlers.NewHandler(repo)
+
+	// Serve frontend static files at /shorturl/
+	http.Handle("/shorturl/", http.StripPrefix("/shorturl/", http.FileServer(http.Dir("site"))))
 
 	http.HandleFunc("/shorten", handler.ShortenURL)
 	http.HandleFunc("/", handler.Redirect)
