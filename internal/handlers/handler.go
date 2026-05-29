@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/PLT875/urlshortener/domain"
+	"github.com/PLT875/urlshortener/internal/domain"
 )
 
 type Handler struct {

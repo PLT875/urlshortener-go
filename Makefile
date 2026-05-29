@@ -23,19 +23,19 @@ help:
 
 test:
 	@echo "Running tests with Windows Docker configuration..."
-	go test -v -timeout 120s
+	go test ./... -v -timeout 120s
 
 build:
 	@echo "Building application..."
-	go build -o urlshortener.exe .
+	go build -o bin/urlshortener ./cmd/urlshortener
 
 run: build
 	@echo "Running application..."
-	./urlshortener.exe
+	.bin/urlshortener
 
 clean:
 	@echo "Cleaning build artifacts..."
-	rm -f urlshortener.exe
+	rm -f bin/*
 	go clean
 
 tidy:
