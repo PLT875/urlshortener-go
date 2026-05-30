@@ -14,8 +14,8 @@ import (
 	tc "github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/wait"
 
-	"github.com/PLT875/urlshortener/handlers"
-	"github.com/PLT875/urlshortener/persistence"
+	"github.com/PLT875/urlshortener/internal/handlers"
+	"github.com/PLT875/urlshortener/internal/persistence"
 )
 
 func TestShortenerWithPostgresContainer(t *testing.T) {
