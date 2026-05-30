@@ -1,0 +1,14 @@
+{
+    "name": "urlshortener-site",
+    "version": "1.0.0",
+    "description": "URL shortener frontend",
+    "main": "site/dist/app.js",
+    "scripts": {
+        "build:site": "tsc",
+        "dev:site": "tsc --watch",
+        "clean:site": "node -e \"require('fs').rmSync('site/dist', {recursive: true, force: true})\""
+    },
+    "devDependencies": {
+        "typescript": "^5.1.0"
+    }
+}
