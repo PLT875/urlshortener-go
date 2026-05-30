@@ -4,10 +4,6 @@
 SHELL := bash
 .SHELLFLAGS := -c
 
-# Environment variables for testcontainers on Windows
-export TESTCONTAINERS_RYUK_DISABLED := true
-export DOCKER_HOST := npipe:////./pipe/docker_engine
-
 help:
 	@echo "Available targets:"
 	@echo "  make test      - Run Go tests with proper Docker configuration"
@@ -21,11 +17,14 @@ help:
 	@echo "  make db-down   - Stop PostgreSQL"
 	@echo "  make dev       - Build and run the application"
 
-test:
+testwindows:
 	@echo "Running tests with Windows Docker configuration..."
-	go test ./... -v -timeout 120s
+	# Environment variables for testcontainers on Windows
+	TESTCONTAINERS_RYUK_DISABLED=true DOCKER_HOST=npipe:////./pipe/docker_engine go test ./... -v -timeout 120s
 
-build:
+test:
+	@echo "Running tests..."
+	go test ./... -v -timeout 120s
 	@echo "Building application..."
 	go build -o bin/urlshortener ./cmd/urlshortener
 
